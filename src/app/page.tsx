@@ -81,23 +81,23 @@ export default function DemoPage() {
           position: 'relative',
         }}
       >
-        {/* ── Consult-AI Darkmode Hero Section ───────────────────────────── */}
+        {/* ── Light Editorial Hero Section ─────────────────────────────── */}
         <section
           ref={heroRef}
-          className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden"
+          className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden border-y border-[#ded8ca]"
           style={{
-            // Glowing radial gradient behind the Three.js sphere on the right
-            background: 'radial-gradient(circle at 75% 50%, rgba(0, 82, 255, 0.1) 0%, transparent 60%)',
+            backgroundColor: '#f3efe5',
+            color: '#0b0a07',
           }}
         >
           {/* Header Navigation */}
-          <header className="hero-nav-item w-full flex items-center justify-between px-6 py-5 lg:px-12 lg:py-6 z-50">
+          <header className="hero-nav-item w-full flex items-center justify-between px-6 py-5 lg:px-14 lg:py-7 z-50 border-b border-[#ded8ca]">
             {/* Logo */}
             <div className="flex items-center gap-2 cursor-pointer">
-              <span className="text-white text-xl font-bold tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
-                consult
+              <span className="text-[#0b0a07] text-xl font-bold tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
+                elux
               </span>
-              <span className="text-[#0052FF] text-xl font-bold tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <span className="text-[#3152FF] text-xl font-bold tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
                 — ai
               </span>
             </div>
@@ -108,7 +108,7 @@ export default function DemoPage() {
                 <a
                   key={item.name}
                   href="#"
-                  className="flex items-center gap-1 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
+                  className="flex items-center gap-1 text-[#0b0a07]/55 hover:text-[#0b0a07] text-sm font-medium transition-colors duration-200"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   {item.name}
@@ -117,93 +117,124 @@ export default function DemoPage() {
               ))}
             </nav>
 
-            {/* Buy Template CTA Button */}
+            {/* CTA Button */}
             <button
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-medium transition-all duration-300 hover:opacity-90 hover:scale-[1.03] group cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2.5 text-white text-sm font-bold uppercase transition-all duration-300 hover:opacity-90 hover:translate-x-0.5 group cursor-pointer"
               style={{
                 fontFamily: 'Inter, sans-serif',
-                backgroundColor: '#0052FF',
-                boxShadow: '0 4px 15px rgba(0, 82, 255, 0.25)',
+                backgroundColor: '#3152FF',
               }}
             >
-              Buy template
-              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white text-[#0052FF] transition-transform duration-300 group-hover:translate-x-0.5">
-                <ArrowRight size={12} strokeWidth={2.5} />
-              </span>
+              Start a project
+              <ArrowRight size={14} strokeWidth={2.5} className="-rotate-45 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
           </header>
 
-          {/* Hero Content Body (Grid Split) */}
-          <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 flex-grow flex flex-col lg:flex-row items-center justify-between gap-12 py-10 lg:py-0 z-20">
-            
-            {/* Left Column: Staggered text content */}
-            <div className="w-full lg:w-1/2 flex flex-col items-start text-left gap-6">
-              
-              {/* Award Tag pill */}
+          {/* Hero Content Body */}
+          <div className="w-full flex-grow grid grid-cols-1 lg:grid-cols-[minmax(0,0.92fr)_minmax(420px,0.8fr)] items-center gap-10 px-6 lg:px-14 py-12 lg:py-8 z-20">
+            {/* Left Column */}
+            <div className="w-full max-w-3xl flex flex-col items-start text-left">
               <div
-                className="hero-left-reveal flex items-center px-4 py-1.5 rounded-md border-l-2 border-r-2 border-[#0052FF] bg-[#0052FF]/5"
+                className="hero-left-reveal inline-flex items-center gap-2 bg-white border border-[#ded8ca] px-4 py-2 mb-10"
                 style={{ willChange: 'transform, opacity' }}
               >
+                <span className="w-2 h-2 rounded-full bg-[#3152FF]" />
                 <span
-                  className="text-white/80 text-[10px] sm:text-xs font-mono uppercase tracking-[0.1em]"
-                  style={{ letterSpacing: '0.1em' }}
+                  className="text-[#0b0a07]/55 text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em]"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
                 >
-                  awarded the most influential company of 2024
+                  The digital studio
                 </span>
               </div>
 
-              {/* Headline */}
               <h1
-                className="hero-left-reveal text-white font-headline font-extrabold tracking-tight leading-[1.08]"
+                className="hero-left-reveal text-[#0b0a07] font-headline font-black max-w-3xl"
                 style={{
-                  fontSize: 'clamp(2.5rem, 5.5vw, 4.2rem)',
+                  fontSize: 'clamp(4rem, 7vw, 8.5rem)',
                   willChange: 'transform, opacity',
                 }}
               >
-                WHERE AI TECH
+                THE DESIGN
                 <br />
-                <span className="text-[#0052FF]">MEETS CONSULTING</span>
+                PARTNER THAT
+                <br />
+                SHIPS WHILE
+                <br />
+                <span className="inline-block bg-[#3152FF] text-white px-4 pb-2">YOU PITCH.</span>
               </h1>
 
-              {/* Subtitle description paragraph */}
-              <p
-                className="hero-left-reveal text-white/60 text-sm sm:text-base leading-relaxed max-w-lg"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  willChange: 'transform, opacity',
-                }}
-              >
-                Consult Ai offers the highest quality consulting services in the area of technology and business. We merge artificial intelligence and strategic advisory into one unified growth engine.
-              </p>
+              <div className="hero-left-reveal mt-4 max-w-xl" style={{ willChange: 'transform, opacity' }}>
+                <p
+                  className="text-[#0b0a07]/55 text-base sm:text-lg leading-[1.65] font-medium"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  We design and build AI-native products for founders who need to move fast and look credible — from Figma to deployed, without the handoff chaos.
+                </p>
+                <p
+                  className="mt-3 text-[#0b0a07]/50 text-sm sm:text-base italic leading-relaxed"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  UX, UI, and front-end under one roof. No drama.
+                </p>
+              </div>
 
-              {/* Learn More Button */}
-              <button
-                className="hero-left-reveal mt-2 flex items-center gap-2.5 px-6 py-3 rounded-full text-white text-sm font-semibold transition-all duration-300 hover:opacity-90 hover:scale-[1.03] group cursor-pointer"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  backgroundColor: '#0052FF',
-                  willChange: 'transform, opacity',
-                  boxShadow: '0 4px 15px rgba(0, 82, 255, 0.25)',
-                }}
+              <div className="hero-left-reveal mt-9 flex flex-col sm:flex-row gap-3" style={{ willChange: 'transform, opacity' }}>
+                <button
+                  className="flex items-center justify-center gap-2 px-7 py-4 text-white text-sm font-black uppercase transition-all duration-300 hover:opacity-90 hover:translate-x-0.5 group cursor-pointer"
+                  style={{ fontFamily: 'Inter, sans-serif', backgroundColor: '#3152FF' }}
+                >
+                  Start a project
+                  <ArrowRight size={15} strokeWidth={2.5} className="-rotate-45 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </button>
+                <button
+                  className="flex items-center justify-center px-7 py-4 text-[#0b0a07] text-sm font-black uppercase border border-[#ded8ca] bg-transparent transition-all duration-300 hover:bg-white cursor-pointer"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  See recent work
+                </button>
+              </div>
+
+              <div
+                className="hero-left-reveal mt-9 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[#0b0a07]/50"
+                style={{ fontFamily: 'Inter, sans-serif', willChange: 'transform, opacity' }}
               >
-                learn more
-                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white text-[#0052FF] transition-transform duration-300 group-hover:translate-x-0.5">
-                  <ArrowRight size={12} strokeWidth={2.5} />
-                </span>
-              </button>
+                <span className="text-[#3152FF] tracking-[-0.08em] text-lg">★★★★★</span>
+                <span className="font-black text-[#0b0a07]">5.0</span>
+                <span>on Clutch</span>
+                <span className="hidden sm:inline text-[#ded8ca]">|</span>
+                <span>40+ founders shipped</span>
+                <span className="hidden sm:inline text-[#ded8ca]">|</span>
+                <span>Dribbble 2.9K</span>
+              </div>
             </div>
 
-            {/* Right Column: Three.js Canvas Container with stable pixel sizing */}
-            <div className="hero-right-canvas w-full lg:w-1/2 flex items-center justify-center relative">
-              <div className="w-[350px] h-[350px] sm:w-[420px] sm:h-[420px] lg:w-[480px] lg:h-[480px] relative">
-                <ParticleSphere />
+            {/* Right Column: Black particle sphere replacing graph */}
+            <div className="hero-right-canvas w-full flex items-center justify-center relative">
+              <div className="w-full max-w-[620px] border border-[#d7d0c2] bg-white/45 shadow-[0_30px_90px_rgba(20,16,10,0.08)]">
+                <div className="h-11 border-b border-[#d7d0c2] flex items-center gap-2 px-5 text-[#0b0a07]/45 font-mono text-xs tracking-[0.18em] lowercase">
+                  <span className="w-3 h-3 rounded-full bg-[#ef6351]" />
+                  <span className="w-3 h-3 rounded-full bg-[#e8a33d]" />
+                  <span className="w-3 h-3 rounded-full bg-[#54c68a]" />
+                  <span className="ml-3">elux — live intelligence</span>
+                </div>
+                <div className="h-[380px] sm:h-[460px] lg:h-[520px] p-8 flex items-center justify-center bg-[#f7f4ec]">
+                  <ParticleSphere variant="black" />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Simple scroll indicator footer */}
-          <footer className="hero-nav-item w-full py-6 flex justify-center text-xs text-white/35 font-mono tracking-widest uppercase">
-            ▼ Scroll down to engage system interface ▼
+          {/* Trust bar */}
+          <footer className="hero-nav-item w-full border-t border-[#ded8ca] px-6 lg:px-14 py-5 flex flex-wrap items-center gap-x-10 gap-y-3 text-xs sm:text-sm uppercase tracking-[0.08em] text-[#0b0a07]/45" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <span>Trusted by <strong className="text-[#0b0a07]">40+ founders</strong></span>
+            <span className="hidden sm:inline text-[#ded8ca]">·</span>
+            <span>Clutch <strong className="text-[#0b0a07]">5.0</strong></span>
+            <span className="hidden sm:inline text-[#ded8ca]">·</span>
+            <span>Contra <strong className="text-[#0b0a07]">5.0</strong></span>
+            <span className="hidden sm:inline text-[#ded8ca]">·</span>
+            <span>Dribbble <strong className="text-[#0b0a07]">2.9K</strong></span>
+            <span className="hidden sm:inline text-[#ded8ca]">·</span>
+            <span>Designrush <strong className="text-[#0b0a07]">verified</strong></span>
           </footer>
         </section>
 

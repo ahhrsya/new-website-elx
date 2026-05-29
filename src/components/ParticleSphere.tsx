@@ -3,7 +3,11 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
-export default function ParticleSphere() {
+interface ParticleSphereProps {
+  variant?: 'blue' | 'black'
+}
+
+export default function ParticleSphere({ variant = 'blue' }: ParticleSphereProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0 })
 
@@ -35,9 +39,11 @@ export default function ParticleSphere() {
     const originalPositions = new Float32Array(particleCount * 3)
     const colors = new Float32Array(particleCount * 3)
 
-    // Palette: Bright electric blue (#0052FF) and clean white for consulting/tech contrast
-    const colorBlue = new THREE.Color('#0052FF')
-    const colorWhite = new THREE.Color('#ffffff')
+    const isBlackVariant = variant === 'black'
+
+    // Palette: blue/white for dark surfaces, black/stone for light editorial hero
+    const colorBlue = new THREE.Color(isBlackVariant ? '#050505' : '#0052FF')
+    const colorWhite = new THREE.Color(isBlackVariant ? '#3d3930' : '#ffffff')
 
     for (let i = 0; i < particleCount; i++) {
       // Golden spiral distribution on sphere for perfect, professional spacing
@@ -75,7 +81,7 @@ export default function ParticleSphere() {
       vertexColors: true,
       transparent: true,
       opacity: 0.85,
-      blending: THREE.AdditiveBlending,
+      blending: isBlackVariant ? THREE.NormalBlending : THREE.AdditiveBlending,
       depthWrite: false,
       sizeAttenuation: true,
     })
@@ -213,7 +219,7 @@ export default function ParticleSphere() {
       material.dispose()
       renderer.dispose()
     }
-  }, [])
+  }, [variant])
 
   return (
     <div
